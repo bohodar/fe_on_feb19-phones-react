@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       phones: getAll(),
       selectedPhone: null,
-      basketItems: ['empty'],
+      basketItems: [],
     };
   }
 
@@ -28,6 +28,15 @@ class App extends React.Component {
               <Filter />
               <Basket 
                 basketItems={this.state.basketItems}
+                onRemovingItem={
+                  (index) => {
+                    this.state.basketItems.splice(index, 1)
+                    this.setState({
+                      basketItems: this.state.basketItems
+                    })
+                  }
+                }
+
               />
             </div>
 
@@ -40,7 +49,7 @@ class App extends React.Component {
                       selectedPhone: null,
                     })
                   }}
-                  onAdding={(phoneId) => {
+                  onAddingItem={(phoneId) => {
                     this.state.basketItems.push(phoneId);
                     this.setState({
                       basketItems: this.state.basketItems
@@ -55,7 +64,7 @@ class App extends React.Component {
                       selectedPhone: getById(phoneId),
                     })
                   }}
-                  onAdding={(phoneId) => {
+                  onAddingItem={(phoneId) => {
                     this.state.basketItems.push(phoneId);
                     this.setState({
                       basketItems: this.state.basketItems
@@ -76,7 +85,7 @@ const Viewer = (props) => (
   <div>
     <img className="phone" src={props.phone.images[0]}/>
     <button onClick={props.onBack}>Back</button>
-    <button onClick={() => (props.onAdding(props.phone.id))}>Add to basket</button>
+    <button onClick={() => (props.onAddingItem(props.phone.id))}>Add to basket</button>
 
     <h1>{props.phone.name}</h1>
     <p>{props.phone.description}</p>

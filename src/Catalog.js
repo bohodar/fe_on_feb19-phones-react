@@ -22,7 +22,7 @@ const Catalog = (props) => {
             <a 
               className="btn btn-success"
               onClick={() => {
-                props.onAdding(phone.id)
+                props.onAddingItem(phone.id)
               }}
             >
               Add
@@ -35,7 +35,7 @@ const Catalog = (props) => {
               props.onPhoneSelected(phone.id)
             }}
           >
-            {phone.name} {props.basketList}
+            {phone.name}
           </a>
 
           <p>{phone.snippet}</p>

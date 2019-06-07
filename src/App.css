@@ -37,6 +37,9 @@ body {
   height: 115px;
   padding-top: 15px;
 }
+.phones li:first-child {
+  margin-top: 15px;
+}
 
 /** Detail View **/
 img.phone {
@@ -138,4 +141,7 @@ h1 {
   padding: 4px 0;
 
   border-bottom: 1px solid #777;
+
+  list-style: none;
+  margin-left: -20px;
 }
