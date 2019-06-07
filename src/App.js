@@ -40,6 +40,12 @@ class App extends React.Component {
                       selectedPhone: null,
                     })
                   }}
+                  onAdding={(phoneId) => {
+                    this.state.basketItems.push(phoneId);
+                    this.setState({
+                      basketItems: this.state.basketItems
+                    })
+                  }}
                 />
               ) : (
                 <Catalog
@@ -70,7 +76,7 @@ const Viewer = (props) => (
   <div>
     <img className="phone" src={props.phone.images[0]}/>
     <button onClick={props.onBack}>Back</button>
-    <button onClick={props.onAdding}>Add to basket</button>
+    <button onClick={() => (props.onAdding(props.phone.id))}>Add to basket</button>
 
     <h1>{props.phone.name}</h1>
     <p>{props.phone.description}</p>
@@ -78,7 +84,7 @@ const Viewer = (props) => (
     <ul className="phone-thumbs">
       { props.phone.images.map(imageUrl => (
         <li>
-          <img src={imageUrl}/>
+          <img src={imageUrl} />
         </li>
       )) }
     </ul>
