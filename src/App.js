@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       phones: getAll(),
       selectedPhone: null,
-      basketItems: [],
+      basketItems: ['empty'],
     };
   }
 
@@ -26,7 +26,9 @@ class App extends React.Component {
           <div className="row">
             <div className="col-md-2">
               <Filter />
-              <Basket />
+              <Basket 
+                basketItems={this.state.basketItems}
+              />
             </div>
 
             <div className="col-md-10">
@@ -36,7 +38,7 @@ class App extends React.Component {
                   onBack={() => {
                     this.setState({
                       selectedPhone: null,
-                    });
+                    })
                   }}
                 />
               ) : (
@@ -45,8 +47,15 @@ class App extends React.Component {
                   onPhoneSelected={(phoneId) => {
                     this.setState({
                       selectedPhone: getById(phoneId),
-                    });
+                    })
                   }}
+                  onAdding={(phoneId) => {
+                    this.state.basketItems.push(phoneId);
+                    this.setState({
+                      basketItems: this.state.basketItems
+                    })
+                  }}
+                  basketList={this.state.basketItems}
                 />
               ) }
             </div>
@@ -61,7 +70,7 @@ const Viewer = (props) => (
   <div>
     <img className="phone" src={props.phone.images[0]}/>
     <button onClick={props.onBack}>Back</button>
-    <button>Add to basket</button>
+    <button onClick={props.onAdding}>Add to basket</button>
 
     <h1>{props.phone.name}</h1>
     <p>{props.phone.description}</p>

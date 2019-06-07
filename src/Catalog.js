@@ -3,7 +3,6 @@ import React from 'react';
 const Catalog = (props) => {
   return (
     <ul className="phones">
-
       { props.phones.map(phone => (
         <li className="thumbnail" key={phone.id} >
           <a
@@ -20,7 +19,12 @@ const Catalog = (props) => {
           </a>
 
           <div className="phones__btn-buy-wrapper">
-            <a className="btn btn-success">
+            <a 
+              className="btn btn-success"
+              onClick={() => {
+                props.onAdding(phone.id)
+              }}
+            >
               Add
             </a>
           </div>
@@ -31,7 +35,7 @@ const Catalog = (props) => {
               props.onPhoneSelected(phone.id)
             }}
           >
-            {phone.name}
+            {phone.name} {props.basketList}
           </a>
 
           <p>{phone.snippet}</p>

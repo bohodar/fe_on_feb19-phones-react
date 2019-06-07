@@ -1,13 +1,16 @@
 import React from 'react';
 
-const Basket = () => {
+const Basket = (props) => {
   return (
-    <section>
+    <section class="shopping-cart">
       <p>Shopping Cart</p>
       <ul>
-        <li>Phone 1 <button>x</button></li>
-        <li>Phone 2 <button>x</button></li>
-        <li>Phone 3 <button>x</button></li>
+        {props.basketItems.map(phoneId => (
+          <li class="shopping-cart__list-item">
+            <span>{phoneId}</span> <button>x</button>
+          </li>
+          ))
+        }
       </ul>
     </section>
   );

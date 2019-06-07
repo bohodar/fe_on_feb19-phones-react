@@ -103,3 +103,39 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+.shopping-cart {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+
+  justify-content: center;
+
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+
+  box-shadow: 0 0 10px 0px #ff6;
+  border-radius: 10px;
+  padding: 7px;
+}
+.shopping-cart p {
+  text-align: center;
+}
+.shopping-cart__list-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+
+  justify-content: space-between;
+
+  text-transform: capitalize;
+  padding: 4px 0;
+
+  border-bottom: 1px solid #777;
+}
