@@ -42,21 +42,6 @@ body {
 }
 
 /** Detail View **/
-img.phone {
-  float: left;
-  margin-right: 3em;
-  margin-bottom: 2em;
-  background-color: white;
-  padding: 2em;
-  height: 400px;
-  width: 400px;
-  display: none;
-}
-
-img.phone:first-child {
-  display: block;
-}
-
 
 ul.phone-thumbs {
   margin: 0;
@@ -145,3 +130,63 @@ h1 {
   list-style: none;
   margin-left: -20px;
 }
+.gallery {
+  float: left;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: 3px outset #977;
+  box-sizing: border-box;
+}
+.gallery--inner {
+  position: absolute;
+  overflow: hidden;
+  width: 394px;
+  height: 394px;
+  border-radius: 20px;
+  background: #aba;
+}
+.gallery-img {
+  background-color: white;
+  width: 400px;
+  height: 100%;
+}
+
+.gallery button {
+  position: absolute;
+  display: inline-block;
+  width: 46px;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background: rgba(190, 190, 190, 0.1);
+  text-align: center;
+  z-index: 3;
+}
+.gallery button:focus {
+  outline: none;
+}
+.left {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.right {
+  right: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.gallery--table {
+  width: auto;
+  height: 400px;
+  border-collapse: collapse;
+  transition: 0.5s;
+}
+.gallery tr {
+  display: flex;
+}
+.gallery td {
+  display: inline-table;
+}
+
