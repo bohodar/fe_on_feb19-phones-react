@@ -1,21 +1,23 @@
 import React from 'react'
 
+let currentX = 0;
+
+const leftScroll = () => {
+  const galleryRow = document.querySelector('.gallery--table');
+  galleryRow.style.transform = `translateX(${currentX = Math.max(currentX - 400, -(galleryRow.clientWidth - 400))}px)`;
+};
+
+const rightScroll = () => {
+  const galleryRow = document.querySelector('.gallery--table');
+  galleryRow.style.transform = `translateX(${currentX = Math.min(currentX + 400, 0)}px)`;
+};
+
 const Viewer = (props) => {
-  
-  let currentX = 0;
-  const leftClick = () => {
-    const galleryRow = document.querySelector('.gallery--table');
-    galleryRow.style.transform = `translateX(${currentX = Math.max(currentX - 400, -(galleryRow.clientWidth - 400))}px)`;
-  };
-  const rightScroll = () => {
-    const galleryRow = document.querySelector('.gallery--table');
-    galleryRow.style.transform = `translateX(${currentX = Math.min(currentX + 400, 0)}px)`;
-  };
 
   return (
     <div>
       <div className="gallery">
-        <button className="left" onClick={leftClick}>{String.fromCharCode(8656)}</button>
+        <button className="left" onClick={rightScroll}>{String.fromCharCode(8656)}</button>
         <div className="gallery--inner">
           <table className="gallery--table">
             <tbody>
@@ -28,7 +30,7 @@ const Viewer = (props) => {
             </tbody>
           </table>
         </div>
-        <button className="right" onClick={rightScroll}>{String.fromCharCode(8658)}</button>
+        <button className="right" onClick={leftScroll}>{String.fromCharCode(8658)}</button>
       </div>
       <button onClick={props.onBack}>Back</button>
       <button onClick={() => (props.onAddingItem(props.phone.id))}>Add to basket</button>

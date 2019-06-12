@@ -20,6 +20,13 @@ class App extends React.Component {
       basketItems: [],
     };
   }
+  onAddingItem = (phoneId) => {
+    this.setState((prev) => {
+      return {
+        basketItems: [...prev.basketItems, phoneId]
+      }
+    })
+  }
 
   render() {
 
@@ -33,9 +40,11 @@ class App extends React.Component {
                 basketItems={this.state.basketItems}
                 onRemovingItem={
                   (index) => {
-                    this.state.basketItems.splice(index, 1)
-                    this.setState({
-                      basketItems: this.state.basketItems
+                    this.setState((prev) => {
+                      prev.basketItems.splice(index, 1);
+                      return {
+                        basketItems: [...prev.basketItems],
+                      }
                     })
                   }
                 }
@@ -52,12 +61,7 @@ class App extends React.Component {
                       selectedPhone: null,
                     })
                   }}
-                  onAddingItem={(phoneId) => {
-                    this.state.basketItems.push(phoneId);
-                    this.setState({
-                      basketItems: this.state.basketItems
-                    })
-                  }}
+                  onAddingItem={this.onAddingItem}
                 />
               ) : (
                 <Catalog
@@ -67,12 +71,7 @@ class App extends React.Component {
                       selectedPhone: getById(phoneId),
                     })
                   }}
-                  onAddingItem={(phoneId) => {
-                    this.state.basketItems.push(phoneId);
-                    this.setState({
-                      basketItems: this.state.basketItems
-                    })
-                  }}
+                  onAddingItem={this.onAddingItem}
                   basketList={this.state.basketItems}
                 />
               ) }
