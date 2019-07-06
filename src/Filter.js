@@ -9,11 +9,12 @@ const Filter = () => {
       </p>
 
       <p>
-        Sort by:
-        <select>
-          <option value="name">Alphabetical</option>
-          <option value="age">Newest</option>
-        </select>
+        <button
+          className="sort-button"
+          onClick={()=>alert('Function in work-process')}
+        >
+          Sort by Alphabetical
+        </button>
       </p>
     </section>
   );

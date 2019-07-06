@@ -26,7 +26,7 @@ class App extends React.Component {
         basketItems: [...prev.basketItems, phoneId]
       }
     })
-  }
+  };
 
   render() {
 
@@ -68,9 +68,17 @@ class App extends React.Component {
                   phones={this.state.phones}
                   onPhoneSelected={(phoneId) => {
                     this.setState({
-                      selectedPhone: getById(phoneId),
+                      selectedPhone: getById(phoneId)
                     })
                   }}
+                  // onPhoneSelected={async(phoneId) => {
+                  //   const url = `api/phones/${phoneId}.json`;
+                  //   const getPhone = await fetch(url)
+                  //       .then(result => result);
+                  //   this.setState({
+                  //     selectedPhone: getPhone,
+                  //   })
+                  // }}
                   onAddingItem={this.onAddingItem}
                   basketList={this.state.basketItems}
                 />

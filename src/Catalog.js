@@ -19,8 +19,10 @@ const Catalog = (props) => {
           </a>
 
           <div className="phones__btn-buy-wrapper">
-            <a 
-              className="btn btn-success"
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a
+              href="#"
+              className="btn viewer__button viewer__button--add"
               onClick={() => {
                 props.onAddingItem(phone.id)
               }}
