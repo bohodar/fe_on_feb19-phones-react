@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fe_on_feb19_todo_app/static/css/main.dd861801.chunk.css",
-    "main.js": "/fe_on_feb19_todo_app/static/js/main.0de828de.chunk.js",
-    "main.js.map": "/fe_on_feb19_todo_app/static/js/main.0de828de.chunk.js.map",
-    "runtime~main.js": "/fe_on_feb19_todo_app/static/js/runtime~main.d0270ed6.js",
-    "runtime~main.js.map": "/fe_on_feb19_todo_app/static/js/runtime~main.d0270ed6.js.map",
-    "static/js/2.8565977d.chunk.js": "/fe_on_feb19_todo_app/static/js/2.8565977d.chunk.js",
-    "static/js/2.8565977d.chunk.js.map": "/fe_on_feb19_todo_app/static/js/2.8565977d.chunk.js.map",
-    "index.html": "/fe_on_feb19_todo_app/index.html",
-    "precache-manifest.f11a4ec87682396db6a88ceb98ecaa7d.js": "/fe_on_feb19_todo_app/precache-manifest.f11a4ec87682396db6a88ceb98ecaa7d.js",
-    "service-worker.js": "/fe_on_feb19_todo_app/service-worker.js",
-    "static/css/main.dd861801.chunk.css.map": "/fe_on_feb19_todo_app/static/css/main.dd861801.chunk.css.map"
+    "main.css": "/fe_on_feb19-phones-react/static/css/main.dd861801.chunk.css",
+    "main.js": "/fe_on_feb19-phones-react/static/js/main.0de828de.chunk.js",
+    "main.js.map": "/fe_on_feb19-phones-react/static/js/main.0de828de.chunk.js.map",
+    "runtime~main.js": "/fe_on_feb19-phones-react/static/js/runtime~main.6b2147bd.js",
+    "runtime~main.js.map": "/fe_on_feb19-phones-react/static/js/runtime~main.6b2147bd.js.map",
+    "static/js/2.8565977d.chunk.js": "/fe_on_feb19-phones-react/static/js/2.8565977d.chunk.js",
+    "static/js/2.8565977d.chunk.js.map": "/fe_on_feb19-phones-react/static/js/2.8565977d.chunk.js.map",
+    "index.html": "/fe_on_feb19-phones-react/index.html",
+    "precache-manifest.61f931a9f1c541e8c30420a058dcafbb.js": "/fe_on_feb19-phones-react/precache-manifest.61f931a9f1c541e8c30420a058dcafbb.js",
+    "service-worker.js": "/fe_on_feb19-phones-react/service-worker.js",
+    "static/css/main.dd861801.chunk.css.map": "/fe_on_feb19-phones-react/static/css/main.dd861801.chunk.css.map"
   }
 }

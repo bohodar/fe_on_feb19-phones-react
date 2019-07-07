@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fe_on_feb19_todo_app/precache-manifest.f11a4ec87682396db6a88ceb98ecaa7d.js"
+  "/fe_on_feb19-phones-react/precache-manifest.61f931a9f1c541e8c30420a058dcafbb.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/fe_on_feb19_todo_app/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/fe_on_feb19-phones-react/index.html"), {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
