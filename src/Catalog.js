@@ -22,9 +22,9 @@ const Catalog = (props) => {
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
               href="#"
-              className="btn viewer__button viewer__button--add"
+              className="viewer__button viewer__button--add"
               onClick={() => {
-                props.onAddingItem(phone.id)
+                props.onAddingItem(phone.name)
               }}
             >
               Add
@@ -36,6 +36,7 @@ const Catalog = (props) => {
             onClick={() => {
               props.onPhoneSelected(phone.id)
             }}
+            className="phone__name"
           >
             {phone.name}
           </a>

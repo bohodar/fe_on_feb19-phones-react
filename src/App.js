@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { getAll, getById } from './api/phone'
+import { getAll } from './api/phone'
 import Basket from './Basket'
 import Filter from './Filter'
 import Catalog from './Catalog'
@@ -8,9 +7,10 @@ import Viewer from './Viewer'
 
 import './App.css';
 
+const axios = require('axios');
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
@@ -18,6 +18,8 @@ class App extends React.Component {
       phones: getAll(),
       selectedPhone: null,
       basketItems: [],
+      isSortDirectAZ: null,
+      currentX: 0
     };
   }
   onAddingItem = (phoneId) => {
@@ -28,6 +30,34 @@ class App extends React.Component {
     })
   };
 
+  handleSorting = () => {
+    let callback;
+    this.setState((prev) => {
+      if (!prev.isSortDirectAZ) {
+        callback = (a, b) => a.id.localeCompare(b.id)
+      } else {
+        callback = (a, b) => b.id.localeCompare(a.id)
+      }
+      const copyArr = prev.phones.sort(callback);
+      return {
+        isSortDirectAZ: !prev.isSortDirectAZ,
+        phones: copyArr
+      }
+    });
+  };
+
+  setPhoneById = (phoneId) => {
+    axios
+      .get(
+        `https://mate-academy.github.io/phone-catalogue-static/api/phones/` +
+        phoneId +
+        `.json`
+      )
+      .then(res => {
+        this.setState({ selectedPhone: res.data });
+      });
+  };
+
   render() {
 
     return (
@@ -35,7 +65,10 @@ class App extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2">
-              <Filter />
+              <Filter
+                onSort={this.handleSorting}
+                sortDirect={this.state.isSortDirectAZ}
+              />
               <Basket 
                 basketItems={this.state.basketItems}
                 onRemovingItem={
@@ -59,26 +92,18 @@ class App extends React.Component {
                   onBack={() => {
                     this.setState({
                       selectedPhone: null,
+                      currentX: 0
                     })
                   }}
+                  currentX={this.state.currentX}
                   onAddingItem={this.onAddingItem}
                 />
               ) : (
                 <Catalog
                   phones={this.state.phones}
                   onPhoneSelected={(phoneId) => {
-                    this.setState({
-                      selectedPhone: getById(phoneId)
-                    })
+                    this.setPhoneById(phoneId);
                   }}
-                  // onPhoneSelected={async(phoneId) => {
-                  //   const url = `api/phones/${phoneId}.json`;
-                  //   const getPhone = await fetch(url)
-                  //       .then(result => result);
-                  //   this.setState({
-                  //     selectedPhone: getPhone,
-                  //   })
-                  // }}
                   onAddingItem={this.onAddingItem}
                   basketList={this.state.basketItems}
                 />

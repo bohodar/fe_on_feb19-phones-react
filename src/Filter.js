@@ -1,21 +1,16 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = (props) => {
+  const { onSort, sortDirect } = props;
   return (
-    <section>
-      <p>
-        Search:
-        <input />
-      </p>
-
-      <p>
-        <button
-          className="sort-button"
-          onClick={()=>alert('Function in work-process')}
-        >
-          Sort by Alphabetical
-        </button>
-      </p>
+    <section className="filter">
+      <input placeholder="Search :" onClick={() => alert("Sorry, i'm working on searching element yet")}/>
+      <button
+        className="sort-button"
+        onClick={()=> onSort()}
+      >
+        Sort by Alphabetical: <span>{!sortDirect ? "A-Z" : 'Z-A'}</span>
+      </button>
     </section>
   );
 };

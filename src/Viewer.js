@@ -1,17 +1,17 @@
 import React from 'react'
 
-let currentX = 0;
-const leftScroll = () => {
-  const galleryRow = document.querySelector('.gallery--table');
-  galleryRow.style.transform = `translateX(${currentX = Math.max(currentX - 400, -(galleryRow.clientWidth - 400))}px)`;
-};
-const rightScroll = () => {
-  const galleryRow = document.querySelector('.gallery--table');
-  galleryRow.style.transform = `translateX(${currentX = Math.min(currentX + 400, 0)}px)`;
-};
 const randomStr = require('randomstring');
 
 const Viewer = (props) => {
+  let { currentX } = props;
+  const leftScroll = () => {
+    const galleryRow = document.querySelector('.gallery--table');
+    galleryRow.style.transform = `translateX(${currentX = Math.max(currentX - 400, -(galleryRow.clientWidth - 400))}px)`;
+  };
+  const rightScroll = () => {
+    const galleryRow = document.querySelector('.gallery--table');
+    galleryRow.style.transform = `translateX(${currentX = Math.min(currentX + 400, 0)}px)`;
+  };
   return (
     <div className="viewer">
       <div className="gallery">
