@@ -4,7 +4,7 @@ const Filter = (props) => {
   const { onSort, sortDirect } = props;
   return (
     <section className="filter">
-      <input placeholder="Search :" onClick={() => alert("Sorry, i'm working on searching element yet")}/>
+      <input value="Search :" onClick={() => alert("Sorry, i'm working on searching element yet")}/>
       <button
         className="sort-button"
         onClick={()=> onSort()}

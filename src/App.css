@@ -1,40 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700,800&display=swap');
+
 body {
-  padding-top: 20px;
   background-color: rgba(192, 238, 227, 0.6);
+  font-family: 'Nunito', sans-serif;
+}
+.header--wrapper {
+  position: relative;
+  top: 0;
+
+  max-height: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: #202020;
+}
+.header {
+  margin-top: 10px;
+
+  text-align: center;
+
+  color: #eeeeee;
+  letter-spacing: 40px;
+  font-size: 2.4em;
+  font-family: 'Russo One', sans-serif;
+  cursor: default;
+}
+.header__contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 0;
+
+  border: 1px solid transparent;
+  width: 100px;
+  height: 100%;
+
+  font-size: 18px;
+  color: #dde;
+
+  cursor: pointer;
+}
+.header__contacts:hover {
+  color: white;
+}
+.container-fluid {
+  margin-top: 20px;
 }
 
-.phone-images {
-  background-color: white;
-  width: 450px;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-  float: left;
-}
 .col-md-10 {
   padding-left: 0;
 }
 
-.phones {
+.phones-list {
   padding-left: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
 }
+.phones-list__thumbnail {
+  display: flex;
 
-.thumb {
-  float: left;
-  margin: -0.5em 1em 1.5em 0;
-  padding-bottom: 1em;
-  height: 100px;
-  width: 100px;
+  padding: 16px 10px;
+  margin: 12px 0;
+
+  border-radius: 8px;
+  background-color: #fff;
+
+  border: 1px solid transparent;
+  
+  transition: .2s;
+}
+.phones-list__thumbnail:hover {
+  box-shadow: 0 0 6px 0 #999;
+}
+.phones-list__thumbnail__left {
+  flex-basis: 25%;
+}
+.phones-list__thumbnail__right {
+  flex-basis: 75%;
+  padding: 0 4px 0 18px;
+}
+.phones-list__thumbnail__right p {
+  margin: 6px 0;
+}
+.thumbnail__left__thumb {
+  display: block;
+}
+.thumbnail__left__thumb img {
+  width: 120px;
+  height: 120px;
 }
 
-.phone__name {
-  font-weight: 600;
-  letter-spacing: .02em;
+.thumbnail__left__modelname {
+  font-weight: 800;
+  letter-spacing: .03em;
   font-size: 1.2em;
 }
+
+.phones-list__thumbnail__btn-buy-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/*  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  */
 
 .col-md-2 {
   display: flex;
@@ -79,18 +150,6 @@ body {
   outline: none;
 }
 
-.phones__btn-buy-wrapper {
-  align-items: center;
-  float: right;
-  height: 100%;
-  display: flex;
-  margin: 0 1em;
-}
-
-.thumbnail {
-  padding: 16px 18px 4px;
-  border-radius: 8px;
-}
 .shopping-cart {
   display: flex;
   justify-content: center;
@@ -98,9 +157,8 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
 
-  box-shadow: 0 0 10px 0 #ff6;
   border-radius: 10px;
-  padding-right: 12px;
+  padding: 0 20px;
   width: 80%;
   margin: 30px auto;
 }
@@ -113,6 +171,14 @@ body {
   letter-spacing: .12em;
   cursor: default;
 }
+.shopping-cart ul {
+  border: 1px solid #78916b;
+  border-radius: 10px;
+  padding: 8px 0;
+  margin: 0 auto 8px;
+  width: 100%;
+  box-shadow: 0 0 10px 0 #aaa;
+}
 .shopping-cart__list-item {
   display: flex;
   justify-content: space-between;
@@ -121,7 +187,6 @@ body {
   text-transform: capitalize;
   padding: 10px 14px;
   margin: 0 10px 10px;
-  margin-left: -20px;
 
   border: 1px solid transparent;
   border-radius: 10px;
@@ -162,6 +227,8 @@ body {
 .shopping-cart__list-item button:active {
   border-color: rgba(166, 0, 0, 0.78);
 }
+/*  END SIDEBAR  END SIDEBAR  END SIDEBAR  END SIDEBAR  END SIDEBAR  */
+
 
 @media (min-width: 992px) {
   .col-md-2 {
@@ -169,6 +236,9 @@ body {
   }
   .col-md-10 {
     width: 74%;
+  }
+  .header__wrapper {
+    max-height: 60px;
   }
   .shopping-cart {
     width: 98%;
@@ -178,14 +248,13 @@ body {
     justify-content: center;
     align-items: stretch;
   }
-  .phones {
+  .phones-list {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  .phones li {
-    flex-basis: 45%;
-    padding: 18px;
+  .phones-list__thumbnail {
+    flex-basis: 46%;
   }
 }
 /** Detail View **/
@@ -214,33 +283,6 @@ ul.phone-thumbs img:hover {
   cursor: pointer;
 }
 
-ul.specs {
-  clear: both;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-ul.specs > li{
-  display: inline-block;
-  width: 200px;
-  vertical-align: top;
-}
-
-ul.specs > li > span{
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-ul.specs dt {
-  font-weight: bold;
-}
-
-h1 {
-  border-bottom: 1px solid gray;
-}
-
-
 .viewer {
   display: flex;
 }
@@ -255,12 +297,12 @@ h1 {
   justify-content: space-around;
 }
 .viewer__button {
-  margin: 18px 0;
-  padding: 6px 20px;
+  margin: 16px 0 6px;
+  padding: 6px 24px;
   border-radius: 6px;
   border: none;
   font-weight: 600;
-  text-shadow: 0 0 4px #000;
+  text-shadow: 0 0 3px #000;
   color: rgba(255, 255, 255, 0.95);
   background-color: #00a6c0;
   transition: .15s ease-in;

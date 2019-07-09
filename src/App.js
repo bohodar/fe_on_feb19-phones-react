@@ -62,6 +62,14 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <header className="header--wrapper">
+          <h1 className="header">
+            Phone Market
+          </h1>
+          <p className="header__contacts">
+            <span>Contacts</span>
+          </p>
+        </header>
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2">
@@ -69,7 +77,8 @@ class App extends React.Component {
                 onSort={this.handleSorting}
                 sortDirect={this.state.isSortDirectAZ}
               />
-              <Basket 
+              {this.state.basketItems.length > 0 ?
+              <Basket
                 basketItems={this.state.basketItems}
                 onRemovingItem={
                   (index) => {
@@ -82,7 +91,7 @@ class App extends React.Component {
                   }
                 }
 
-              />
+              /> : null }
             </div>
 
             <div className="col-md-10">

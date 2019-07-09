@@ -2,46 +2,44 @@ import React from 'react';
 
 const Catalog = (props) => {
   return (
-    <ul className="phones">
+    <ul className="phones-list">
       { props.phones.map(phone => (
-        <li className="thumbnail" key={phone.id} >
-          <a
-            href={'#' + phone.id}
-            className="thumb"
-            onClick={() => {
-              props.onPhoneSelected(phone.id)
-            }}
-          >
-            <img
-              alt={phone.name}
-              src={phone.imageUrl}
-            />
-          </a>
-
-          <div className="phones__btn-buy-wrapper">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <li className="phones-list__thumbnail" key={phone.id} >
+          <div className="phones-list__thumbnail__left side">
             <a
-              href="#"
-              className="viewer__button viewer__button--add"
+              href={'#' + phone.id}
+              className="thumbnail__left__thumb"
               onClick={() => {
-                props.onAddingItem(phone.name)
+                props.onPhoneSelected(phone.id)
               }}
             >
-              Add
+              <img
+                alt={phone.name}
+                src={phone.imageUrl}
+              />
             </a>
+            <div className="phones-list__thumbnail__btn-buy-wrapper">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <button
+                className="viewer__button viewer__button--add"
+                onClick={() => {props.onAddingItem(phone.name)}}
+              >
+                Add
+              </button>
+            </div>
           </div>
-
-          <a
-            href={'#' + phone.id}
-            onClick={() => {
-              props.onPhoneSelected(phone.id)
-            }}
-            className="phone__name"
-          >
-            {phone.name}
-          </a>
-
-          <p>{phone.snippet}</p>
+          <div className="phones-list__thumbnail__right side">
+            <a
+              href={'#' + phone.id}
+              onClick={() => {
+                props.onPhoneSelected(phone.id)
+              }}
+              className="thumbnail__left__modelname"
+            >
+              {phone.name}
+            </a>
+            <p>{phone.snippet}</p>
+          </div>
         </li>
       )) }
     </ul>
